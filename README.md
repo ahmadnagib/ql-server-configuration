@@ -58,9 +58,10 @@ This sections includes the configuration changes made on the ubuntu server insta
 
 ### Updating Installed Packages
 
-`ubuntu@ip-172-26-15-133:~$ sudo apt-get update`
-`ubuntu@ip-172-26-15-133:~$ sudo apt-get upgrade`
-`ubuntu@ip-172-26-15-133:~$ sudo apt-get autoremove`
+```ubuntu@ip-172-26-15-133:~$ sudo apt-get update
+ubuntu@ip-172-26-15-133:~$ sudo apt-get upgrade
+ubuntu@ip-172-26-15-133:~$ sudo apt-get autoremove
+```
 
 ### Changing the SSH port
 Open `sshd_config` file with nano editor
