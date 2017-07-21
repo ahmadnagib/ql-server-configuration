@@ -258,7 +258,7 @@ This section includes a summary of software that was installed on the Ubuntu ser
 
     `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/postgresql/9.5/main/pg_hba.conf`
 
-- At least add this line at after `Database administrative login by Unix domain socket`
+- At least add this line after `Database administrative login by Unix domain socket` comment
 
     `local   catalog         catalog                                 peer map=wwwmap`
 
