@@ -42,7 +42,7 @@ This project requires a Linux server instance to serve the QuantumLeap Catalog a
 
 As seen in the Amazon Lightsail instance dashboard, the public IP address of the created instance for this project is 35.176.115.62. The server can be accessed using Git Bash via SSH. The command `ssh grader@35.176.115.62 -p 2200 -i /PATH_TO_THE_USER_PRIVATE_KEY` should be used.
 
-"grader" is the created Ubuntu user that a Udacity reviewer can use to review the project. Additionally, "PATH_TO_THE_USER_PRIVATE_KEY" is the path of the private key on the connecting local machine to be able to log into the server as "grader".
+`grader` is the created Ubuntu user that a Udacity reviewer can use to review the project. Additionally, `PATH_TO_THE_USER_PRIVATE_KEY` is the path of the private key on the connecting local machine to be able to log into the server as `grader`.
 
 It should be noticed that port 2200 is the port used for SSH instead of the default port 20 which was disabled manually on this instance. Logging into the instance can also be done using PuTTY. More details about how to do this can be found at this [link](https://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-putty-to-connect-using-ssh). 
 
