@@ -420,20 +420,20 @@ if __name__ == '__main__':
 
 - Additionally `/var/www/quantumleap.cf/views/login.py` should be edited to be able to access the client secret file and work properly.
 
-CLIENT_ID in line 35 should be like
-```
-# get the client_id from the client secret json file
-CLIENT_ID = json.loads(
-    open(
-        '/var/www/quantumleap.cf/secrets_of_g_client.json',
-        'r').read())['web']['client_id']
-```
-gplus_oauth_flow in line 77 should be like
-```
-# get a credentials object using the authorization code
-        gplus_oauth_flow = flow_from_clientsecrets(
-            '/var/www/quantumleap.cf/secrets_of_g_client.json', scope='')
-```
+    CLIENT_ID in line 35 should be like
+    ```
+    # get the client_id from the client secret json file
+    CLIENT_ID = json.loads(
+        open(
+            '/var/www/quantumleap.cf/secrets_of_g_client.json',
+            'r').read())['web']['client_id']
+    ```
+    gplus_oauth_flow in line 77 should be like
+    ```
+    # get a credentials object using the authorization code
+            gplus_oauth_flow = flow_from_clientsecrets(
+                '/var/www/quantumleap.cf/secrets_of_g_client.json', scope='')
+    ```
 
 Without doing this modification any client browser will show an `Internal Server Error` instead of running the application properly. More details about deploying a flask application on an Ubuntu server can be found [here](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps), [here](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/), and [here](http://nikles.it/block-direct-ip-access-to-your-server-in-apache-2-4/).
 
