@@ -2,7 +2,14 @@
 
 QuantumLeap (QL) is a Linux Ubuntu server hosting [Quantum Leap Catalog](https://github.com/ahmadnagib/QuantumLeapCatalog) web application. A collection of configuration changes has been made on the server to be able to serve the application properly and securely. An overview of the carried out changes is included in this README file.
 
-This project is part of Udacity's Full Stack Web Developer Nanodegree Program. References to webpages that were relevant to the configuration process are included in this documentation.
+This project is part of Udacity's Full Stack Web Developer Nanodegree Program. The lessons of the `Configuring Linux Web Servers` Udacity course were one of the main resources to complete this project in addition to other third-party resources.
+
+
+
+## README Contents
+This README file includes information about the IP address of the used ubuntu server, URL of the deployed web application, summary of software installed and configurations made. Additionally, references to webpages that were relevant to the configuration process are included in this documentation.
+
+The file is structured as follows:
 
 - [Accessing the Amazon Lightsail Instance](#accessing-the-amazon-lightsail-instance)
 - [URL of QuantumLeap Catalog Application](#url-of-quantumleap-catalog-application)
