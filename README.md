@@ -23,7 +23,7 @@ This project is part of Udacity's Full Stack Web Developer Nanodegree Program. R
     + [Switch from SQLite to PostgreSQL](#switch-from-sqlite-to-postgresql)
     + [Configure flask Flow](#configure-flask-flow)
     + [Configure Domain Name](#configure-domain-name)
-    + [Configure OAuth 2.0 client ID](configure-oauth-2.0-client-id)
+    + [Configure OAuth 2.0 client ID](#configure-oauth-2.0-client-id)
 - [References](#references)
 
 
