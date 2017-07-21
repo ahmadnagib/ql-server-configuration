@@ -200,8 +200,20 @@ The status by that time should be
     grader@ip-172-26-15-133:~$ chmod 700 .ssh
     grader@ip-172-26-15-133:~$ chmod 644 .ssh/authorized_keys
     ```
-
-
+- Finally to force key based authentication and disable login using passwords, edit the ssh configuration file
+    ```
+    ubuntu@ip-172-26-15-133:~$ sudo nano /etc/ssh/sshd_config
+    ```
+    #### from
+    ```
+    # Change to no to disable tunnelled clear text passwords
+    PasswordAuthentication yes
+    ```
+    #### to
+    ```
+    # Change to no to disable tunnelled clear text passwords
+    PasswordAuthentication no
+    ```
 
 ### Configuring the local timezone to UTC
 
