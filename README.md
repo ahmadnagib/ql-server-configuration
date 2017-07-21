@@ -36,7 +36,7 @@ The file is structured as follows:
 
 ## Accessing the Amazon Lightsail Instance
 
-This project requires a Linux server instance to serve the QuantumLeap Catalog application as a WSGI application. [Amazon Lightsail](lightsail.aws.amazon.com) was used to fulfill this requirement. The detailed steps for creating an Ubuntu server on lightsail can be found [here](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html).
+This project requires a Linux server instance to serve the QuantumLeap Catalog application as a WSGI application. [Amazon Lightsail](http://www.lightsail.aws.amazon.com) was used to fulfill this requirement. The detailed steps for creating an Ubuntu server on lightsail can be found [here](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html).
 
 ![amazon-lightsail-instance-homepage](https://user-images.githubusercontent.com/13169976/28465356-b6bff0c8-6e28-11e7-9b13-65dae55b2a67.png)
 
@@ -44,7 +44,7 @@ As seen in the Amazon Lightsail instance dashboard, the public IP address of the
 
 `grader` is the created Ubuntu user that a Udacity reviewer can use to review the project. Additionally, `PATH_TO_THE_USER_PRIVATE_KEY` is the path of the private key on the connecting local machine to be able to log into the server as `grader`.
 
-It should be noticed that `port 2200` is the port used for SSH instead of the default `port 20` which was disabled manually on this instance. Logging into the instance can also be done using [PuTTY](www.putty.org). More details about how to do this can be found at [this link](https://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-putty-to-connect-using-ssh). 
+It should be noticed that `port 2200` is the port used for SSH instead of the default `port 20` which was disabled manually on this instance. Logging into the instance can also be done using [PuTTY](http://www.putty.org). More details about how to do this can be found at [this link](https://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-putty-to-connect-using-ssh). 
 
 
 ## URL of QuantumLeap Catalog Application
