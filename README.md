@@ -66,36 +66,36 @@ ubuntu@ip-172-26-15-133:~$ sudo apt-get autoremove
 
 ### Changing the SSH port
 - Open `sshd_config` file with nano editor
-`ubuntu@ip-172-26-15-133:~$ sudo nano /etc/ssh/sshd_config`
+    `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/ssh/sshd_config`
 
 - Change the SSH port from 22 to 2200
-#### from
-```
-# What ports, IPs and protocols we listen for
-Port 22
-```
-#### to
-```
-# What ports, IPs and protocols we listen for
-Port 2200
-```
+    #### from
+    ```
+    # What ports, IPs and protocols we listen for
+    Port 22
+    ```
+    #### to
+    ```
+    # What ports, IPs and protocols we listen for
+    Port 2200
+    ```
 
 - Additionally, remote SSH Login as root user can be disabled by changing `PermitRootLogin` directive.
 
-#### from
-```
-# Authentication:
-LoginGraceTime 120
-PermitRootLogin prohibit-password
-StrictModes yes
-```
-#### to
-```
-# Authentication:
-LoginGraceTime 120
-PermitRootLogin no
-StrictModes yes
-```
+    #### from
+    ```
+    # Authentication:
+    LoginGraceTime 120
+    PermitRootLogin prohibit-password
+    StrictModes yes
+    ```
+    #### to
+    ```
+    # Authentication:
+    LoginGraceTime 120
+    PermitRootLogin no
+    StrictModes yes
+    ```
 
 More details about SSH port configuration and remote root login can be found [here](https://ae.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306) and [here](https://askubuntu.com/questions/27559/how-do-i-disable-remote-ssh-login-as-root-from-a-server).
 
@@ -104,38 +104,39 @@ More details about SSH port configuration and remote root login can be found [he
 ![amazon-lightsail-instance-networking-tab](https://user-images.githubusercontent.com/13169976/28465357-b6c2ba2e-6e28-11e7-9bd1-aa7e2d60cba7.png)
 
 - Restart ssh service for changes to take effect
-`ubuntu@ip-172-26-15-133:~$ service sshd restart`
+    `ubuntu@ip-172-26-15-133:~$ service sshd restart`
 
 
 ### Configuring the Uncomplicated Firewall
 
 - Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123)
 
-```
-ubuntu@ip-172-26-15-133:~$ sudo ufw allow 2200/tcp
-ubuntu@ip-172-26-15-133:~$ sudo ufw allow www
-ubuntu@ip-172-26-15-133:~$ sudo ufw allow ntp
-```
+    ```
+    ubuntu@ip-172-26-15-133:~$ sudo ufw allow 2200/tcp
+    ubuntu@ip-172-26-15-133:~$ sudo ufw allow www
+    ubuntu@ip-172-26-15-133:~$ sudo ufw allow ntp
+    ```
 
 - Make sure that everything is fine before enabling the Uncomplicated Firewall (UFW)
-`ubuntu@ip-172-26-15-133:~$ sudo ufw status`
+    `ubuntu@ip-172-26-15-133:~$ sudo ufw status`
 
 - Enable the configured UFW
-`ubuntu@ip-172-26-15-133:~$ sudo ufw enable`
+    `ubuntu@ip-172-26-15-133:~$ sudo ufw enable`
 
 The status by that time should be
-```
-Status: active
+    
+    ```
+    Status: active
 
-To                         Action      From
---                         ------      ----
-2200/tcp                   ALLOW       Anywhere
-80/tcp                     ALLOW       Anywhere
-123                        ALLOW       Anywhere
-2200/tcp (v6)              ALLOW       Anywhere (v6)
-80/tcp (v6)                ALLOW       Anywhere (v6)
-123 (v6)                   ALLOW       Anywhere (v6)
-```
+    To                         Action      From
+    --                         ------      ----
+    2200/tcp                   ALLOW       Anywhere
+    80/tcp                     ALLOW       Anywhere
+    123                        ALLOW       Anywhere
+    2200/tcp (v6)              ALLOW       Anywhere (v6)
+    80/tcp (v6)                ALLOW       Anywhere (v6)
+    123 (v6)                   ALLOW       Anywhere (v6)
+    ```
 
 - Additionally, the lightsail instance's firewall should only allow these three port numbers. More details about UFW can be found [here](https://help.ubuntu.com/community/UFW)
 
@@ -145,56 +146,56 @@ To                         Action      From
 ### Giving grader permission to sudo
 
 - The existing configuration for "ubuntu" initial user should be copied to another file named "grader" 
-`ubuntu@ip-172-26-15-133:~$ sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader`
+    `ubuntu@ip-172-26-15-133:~$ sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader`
 
 - Then the file should be edited
-`ubuntu@ip-172-26-15-133:~$ sudo nano /etc/sudoers.d/grade`
+    `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/sudoers.d/grade`
 
 - Change "ubuntu" user in the file to be "grader" user
 
-#### from
-```
-# Created by cloud-init v. 0.7.9 on Wed, 19 Jul 2017 09:03:25 +0000
+    #### from
+    ```
+    # Created by cloud-init v. 0.7.9 on Wed, 19 Jul 2017 09:03:25 +0000
 
-# User rules for ubuntu
-ubuntu ALL=(ALL) NOPASSWD:ALL
-```
-#### to
-```
-# Created by Ahmad Nagib (ubuntu) on Wed, 19 Jul 2017 09:15:30 +0000
+    # User rules for ubuntu
+    ubuntu ALL=(ALL) NOPASSWD:ALL
+    ```
+    #### to
+    ```
+    # Created by Ahmad Nagib (ubuntu) on Wed, 19 Jul 2017 09:15:30 +0000
 
-# User rules for grader
-grader ALL=(ALL) NOPASSWD:ALL
-```
+    # User rules for grader
+    grader ALL=(ALL) NOPASSWD:ALL
+    ```
 
 
 ### Key Based Authentication
 
 - Create an SSH key pair for "grader" user using the ssh-keygen tool from Git Bash on the local connecting machine with no passphrase.
 
-```
-Ahmad Nagib@Ahmad MINGW64 /f/Downloads
-$ ssh-keygen
-Generating public/private rsa key pair.
-Enter file in which to save the key (/c/Users/Ahmad Nagib/.ssh/id_rsa): graderkey
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in graderkey.
-Your public key has been saved in graderkey.pub.
-```
+    ```
+    Ahmad Nagib@Ahmad MINGW64 /f/Downloads
+    $ ssh-keygen
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/c/Users/Ahmad Nagib/.ssh/id_rsa): graderkey
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in graderkey.
+    Your public key has been saved in graderkey.pub.
+    ```
 
-
-`ubuntu@ip-172-26-15-133:~$ sudo su grader`
-`grader@ip-172-26-15-133:~$ cd`
-`grader@ip-172-26-15-133:~$ mkdir .ssh`
-`grader@ip-172-26-15-133:~$ sudo nano .ssh/authorized_keys`
+- Create a new directory named `.ssh` in the home directory of `grader` user to hold the public key
+    `ubuntu@ip-172-26-15-133:~$ sudo su grader`
+    `grader@ip-172-26-15-133:~$ cd`
+    `grader@ip-172-26-15-133:~$ mkdir .ssh`
+    `grader@ip-172-26-15-133:~$ sudo nano .ssh/authorized_keys`
 
 - Paste the public key from `graderkey.pub` file on your local machine to `authorized_keys` file created on the server.
 
 - Change the permissions on the folder and file to secure it from any undesired access
 
-`grader@ip-172-26-15-133:~$ chmod 700 .ssh`
-`grader@ip-172-26-15-133:~$ chmod 644 .ssh/authorized_keys`
+    `grader@ip-172-26-15-133:~$ chmod 700 .ssh`
+    `grader@ip-172-26-15-133:~$ chmod 644 .ssh/authorized_keys`
 
 
 
@@ -211,18 +212,18 @@ This section includes a summary of software that was installed on the Ubuntu ser
 ### Apache Server
 - Install and configure Apache to serve a Python mod_wsgi application.
 
-`ubuntu@ip-172-26-15-133:~$ sudo apt-get install apache2`
-`ubuntu@ip-172-26-15-133:~$ sudo apt-get install libapache2-mod-wsgi`
+    `ubuntu@ip-172-26-15-133:~$ sudo apt-get install apache2`
+    `ubuntu@ip-172-26-15-133:~$ sudo apt-get install libapache2-mod-wsgi`
 
 - Make sure that port 80 is used by Apache server. Open `ports.conf` file and check whether `Listen` directive is set to `80`
 
-`ubuntu@ip-172-26-15-133:~$ sudo nano /etc/apache2/ports.conf`
+    `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/apache2/ports.conf`
 
-`Listen 80`
+    `Listen 80`
 
 - Error logs of Apache server can always be checked by viewing `/var/log/apache2/error.log` file.
 
-`ubuntu@ip-172-26-15-133:~$ sudo cat /var/log/apache2/error.log`
+    `ubuntu@ip-172-26-15-133:~$ sudo cat /var/log/apache2/error.log`
 
 
 
@@ -230,117 +231,119 @@ This section includes a summary of software that was installed on the Ubuntu ser
 
 - Install PostgreSQL
 
-`ubuntu@ip-172-26-15-133:~$ sudo apt-get install postgresql`
+    `ubuntu@ip-172-26-15-133:~$ sudo apt-get install postgresql`
 
 - Create a new database user `catalog`
-`ubuntur@ip-172-26-15-133:~$ sudo -u postgres createuser --interactive`
+    `ubuntur@ip-172-26-15-133:~$ sudo -u postgres createuser --interactive`
 
 - Make sure to give this user limited permissions
-```
-Enter name of role to add: catalog
-Shall the new role be a superuser? (y/n) n
-Shall the new role be allowed to create databases? (y/n) n
-Shall the new role be allowed to create more new roles? (y/n) n
-```
+    ```
+    Enter name of role to add: catalog
+    Shall the new role be a superuser? (y/n) n
+    Shall the new role be allowed to create databases? (y/n) n
+    Shall the new role be allowed to create more new roles? (y/n) n
+    ```
 
 - Edit the PostgreSQL Client Authentication Configuration File to map `www-data` Ubuntu user to the created `catalog` PostgreSQL user. This would allow the web application to connect to the database.
 
-`ubuntu@ip-172-26-15-133:~$ sudo nano /etc/postgresql/9.5/main/pg_hba.conf`
+    `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/postgresql/9.5/main/pg_hba.conf`
 
 - At least add this line at after `Database administrative login by Unix domain socket`
 
-`local   catalog         catalog                                 peer map=wwwmap`
+    `local   catalog         catalog                                 peer map=wwwmap`
 
 - Additionally, make sure that all the hosts in the PostgreSQL Client Authentication Configuration File `pg_hba.conf` do not have remote addresses. This disallows any remote database connections.
 
 - Then create the map in the PostgreSQL User Name Maps file `pg_ident.conf` 
 
-`ubuntu@ip-172-26-15-133:~$ sudo nano /etc/postgresql/9.5/main/pg_ident.conf`
+    `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/postgresql/9.5/main/pg_ident.conf`
 
 - Add this line at the end of the file
-`wwwmap          www-data                catalog`
+    `wwwmap          www-data                catalog`
 
 - Reload the PostgreSQL service 
-`ubuntu@ip-172-26-15-133:~$ sudo /etc/init.d/postgresql reload`
+    `ubuntu@ip-172-26-15-133:~$ sudo /etc/init.d/postgresql reload`
 
 - Now log into PostgreSQL and create a new `catalog` database
-```
-ubuntu@ip-172-26-15-133:~$ sudo -u postgres psql
-psql (9.5.7)
-Type "help" for help.
+    ```
+    ubuntu@ip-172-26-15-133:~$ sudo -u postgres psql
+    psql (9.5.7)
+    Type "help" for help.
 
-postgres=# CREATE DATABASE test;
-```
+    postgres=# CREATE DATABASE test;
+    ```
 
 -Additionally, restrict connection to the `catalog` database to `catalog` user only. More details can be found [here](https://dba.stackexchange.com/questions/17790/created-user-can-access-all-databases-in-postgresql-without-any-grants)
-```
-postgres=# REVOKE connect ON DATABASE catalog FROM PUBLIC;
-postgres=# GRANT connect ON DATABASE catalog TO catalog;
-```
+
+    ```
+    postgres=# REVOKE connect ON DATABASE catalog FROM PUBLIC;
+    postgres=# GRANT connect ON DATABASE catalog TO catalog;
+    ```
 
 ### Git
 - Install git
-`ubuntu@ip-172-26-15-133:~$ sudo apt-get install git`
+    `ubuntu@ip-172-26-15-133:~$ sudo apt-get install git`
 
 - Clone the Quantum Leap Catalog project files to the /var/www directory
-```
-ubuntu@ip-172-26-15-133:~$ cd /var/www
-ubuntu@ip-172-26-15-133:/var/www$ sudo git clone https://github.com/ahmadnagib/QuantumLeapCatalog
-```
+    ```
+    ubuntu@ip-172-26-15-133:~$ cd /var/www
+    ubuntu@ip-172-26-15-133:/var/www$ sudo git clone https://github.com/ahmadnagib/QuantumLeapCatalog
+    ```
 
 - Change the name of the folder and the name of a file in the folder
-```
-ubuntu@ip-172-26-15-133:~$ sudo mv /var/www/QuantumLeapCatalog /var/www/quantumleap.cf`
-ubuntu@ip-172-26-15-133:~$ sudo mv /var/www/quantumleap.cf/qlcatalog.py /var/www/quantumleap.cf/qlcatalog.wsgi`
-```
+    ```
+    ubuntu@ip-172-26-15-133:~$ sudo mv /var/www/QuantumLeapCatalog /var/www/quantumleap.cf`
+    ubuntu@ip-172-26-15-133:~$ sudo mv /var/www/quantumleap.cf/qlcatalog.py /var/www/quantumleap.cf/qlcatalog.wsgi`
+    ```
 
 After these few changes the QuantumLeap Catalog web application directory view is as follows:
-```
-/var/www/quantumleap.cf/
-├──  models/
-    ├── __init_.py
-    ├── base.py
-    ├── category.py
-    ├── item.py
-    ├── user.py
-├──  views/
-    ├── static/
-        ├── main.css
-    ├── templates/
-        ├── addcategory.html
-        ├── additem.html
-        ├── allcategories_public.html
-        ├── base.html
-        ├── category.html
-        ├── category_public.html
-        ├── categoryitems_public.html
-        ├── deletecategory.html
-        ├── deleteitem.html
-        ├── editcategory.html
-        ├── edititem.html
-        ├── item.html
-        ├── item_public.html
-        ├── login.html
-    ├── app.py
-    ├── categoryitems.py
-    ├── databasesession.py
-    ├── deletecategory.py
-    ├── deleteitem.py
-    ├── editcategory.py
-    ├── edititem.py
-    ├── getcategories.py
-    ├── getcategory.py
-    ├── getitem.py
-    ├── login.py
-    ├── logout.py
-    ├── newcategory.py
-    ├── newitem.py
-    ├── utils.py
-├── LICENSE
-├── qlcatalog.wsgi
-├── README.md
-├── secrets_of_g_client.json
-```
+
+    ```
+    /var/www/quantumleap.cf/
+    ├──  models/
+        ├── __init_.py
+        ├── base.py
+        ├── category.py
+        ├── item.py
+        ├── user.py
+    ├──  views/
+        ├── static/
+            ├── main.css
+        ├── templates/
+            ├── addcategory.html
+            ├── additem.html
+            ├── allcategories_public.html
+            ├── base.html
+            ├── category.html
+            ├── category_public.html
+            ├── categoryitems_public.html
+            ├── deletecategory.html
+            ├── deleteitem.html
+            ├── editcategory.html
+            ├── edititem.html
+            ├── item.html
+            ├── item_public.html
+            ├── login.html
+        ├── app.py
+        ├── categoryitems.py
+        ├── databasesession.py
+        ├── deletecategory.py
+        ├── deleteitem.py
+        ├── editcategory.py
+        ├── edititem.py
+        ├── getcategories.py
+        ├── getcategory.py
+        ├── getitem.py
+        ├── login.py
+        ├── logout.py
+        ├── newcategory.py
+        ├── newitem.py
+        ├── utils.py
+    ├── LICENSE
+    ├── qlcatalog.wsgi
+    ├── README.md
+    ├── secrets_of_g_client.json
+    ```
 
 
 ## Depolying QuantumLeap Catalog
