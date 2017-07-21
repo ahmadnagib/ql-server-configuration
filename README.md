@@ -36,7 +36,7 @@ The file is structured as follows:
 
 ## Accessing the Amazon Lightsail Instance
 
-This project requires a Linux server instance to serve the QuantumLeap Catalog application as a WSGI application. [Amazon Lightsail](http://www.lightsail.aws.amazon.com) was used to fulfill this requirement. The detailed steps for creating an Ubuntu server on lightsail can be found [here](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html).
+This project requires a Linux server instance to serve the QuantumLeap Catalog application as a WSGI application. [Amazon Lightsail](http://lightsail.aws.amazon.com) was used to fulfill this requirement. The detailed steps for creating an Ubuntu server on lightsail can be found [here](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html).
 
 ![amazon-lightsail-instance-homepage](https://user-images.githubusercontent.com/13169976/28465356-b6bff0c8-6e28-11e7-9b13-65dae55b2a67.png)
 
