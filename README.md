@@ -31,7 +31,7 @@ This project is part of Udacity's Full Stack Web Developer Nanodegree Program. R
 
 This project requires a Linux server instance to serve the QuantumLeap Catalog application as a WSGI application. [Amazon Lightsail](lightsail.aws.amazon.com) was used to fulfill this requirement. The detailed steps for creating an Ubuntu server on lightsail can be found [here](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html).
 
-![Amazon-Lightsail-instance-homepage](amazon-lightsail-instance-homepage.png)
+![amazon-lightsail-instance-homepage](https://user-images.githubusercontent.com/13169976/28465356-b6bff0c8-6e28-11e7-9b13-65dae55b2a67.png)
 
 As seen in the Amazon Lightsail instance dashboard, the public IP address of the created instance for this project is 35.176.115.62. The server can be accessed using Git Bash via SSH. The command `ssh grader@35.176.115.62 -p 2200 -i /PATH_TO_THE_USER_PRIVATE_KEY` should be used.
 
@@ -92,7 +92,7 @@ More details about SSH port configuration and remote root login can be found [he
 
 Make sure that custom port 2200 is also allowed in the Amazon Lightsail instance firewall settings from the networking tab as shown below.
 
-![Amazon-Lightsail-instance-networking-tab](amazon-lightsail-instance-networking-tab.png)
+![amazon-lightsail-instance-networking-tab](https://user-images.githubusercontent.com/13169976/28465357-b6c2ba2e-6e28-11e7-9bd1-aa7e2d60cba7.png)
 
 Restart ssh service for changes to take effect
 `ubuntu@ip-172-26-15-133:~$ service sshd restart`
@@ -473,6 +473,6 @@ For more details, kindly check this [link](https://www.digitalocean.com/communit
 
 Authorized JavaScript origins should include `http://quantumleap.cf` and `http://www.quantumleap.cf`. Additionally, Authorized redirect URIs preferably should include `http://quantumleap.cf/login` and `http://quantumleap.cf/google-auth` as shown below.
 
-![Google API Manager - OAuth 2.0 client IDs](google-cloud-platform.png)
+![google-cloud-platform](https://user-images.githubusercontent.com/13169976/28465358-b6c3f966-6e28-11e7-8b00-b3c180315e8d.png)
 
 ## References
