@@ -65,10 +65,10 @@ ubuntu@ip-172-26-15-133:~$ sudo apt-get autoremove
 ```
 
 ### Changing the SSH port
-Open `sshd_config` file with nano editor
+- Open `sshd_config` file with nano editor
 `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/ssh/sshd_config`
 
-Change the SSH port from 22 to 2200
+- Change the SSH port from 22 to 2200
 #### from
 ```
 # What ports, IPs and protocols we listen for
@@ -80,7 +80,7 @@ Port 22
 Port 2200
 ```
 
-Additionally, remote SSH Login as root user can be disabled by changing `PermitRootLogin` directive.
+- Additionally, remote SSH Login as root user can be disabled by changing `PermitRootLogin` directive.
 
 #### from
 ```
@@ -99,17 +99,17 @@ StrictModes yes
 
 More details about SSH port configuration and remote root login can be found [here](https://ae.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306) and [here](https://askubuntu.com/questions/27559/how-do-i-disable-remote-ssh-login-as-root-from-a-server).
 
-Make sure that custom port 2200 is also allowed in the Amazon Lightsail instance firewall settings from the networking tab as shown below.
+- Make sure that custom port 2200 is also allowed in the Amazon Lightsail instance firewall settings from the networking tab as shown below.
 
 ![amazon-lightsail-instance-networking-tab](https://user-images.githubusercontent.com/13169976/28465357-b6c2ba2e-6e28-11e7-9bd1-aa7e2d60cba7.png)
 
-Restart ssh service for changes to take effect
+- Restart ssh service for changes to take effect
 `ubuntu@ip-172-26-15-133:~$ service sshd restart`
 
 
 ### Configuring the Uncomplicated Firewall
 
-Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123)
+- Allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123)
 
 ```
 ubuntu@ip-172-26-15-133:~$ sudo ufw allow 2200/tcp
@@ -117,10 +117,10 @@ ubuntu@ip-172-26-15-133:~$ sudo ufw allow www
 ubuntu@ip-172-26-15-133:~$ sudo ufw allow ntp
 ```
 
-Make sure that everything is fine before enabling the Uncomplicated Firewall (UFW)
+- Make sure that everything is fine before enabling the Uncomplicated Firewall (UFW)
 `ubuntu@ip-172-26-15-133:~$ sudo ufw status`
 
-enable the configured UFW
+- Enable the configured UFW
 `ubuntu@ip-172-26-15-133:~$ sudo ufw enable`
 
 The status by that time should be
@@ -137,20 +137,20 @@ To                         Action      From
 123 (v6)                   ALLOW       Anywhere (v6)
 ```
 
-Additionally, the lightsail instance's firewall should only allow these three port numbers. More details about UFW can be found [here](https://help.ubuntu.com/community/UFW)
+- Additionally, the lightsail instance's firewall should only allow these three port numbers. More details about UFW can be found [here](https://help.ubuntu.com/community/UFW)
 
 ### Creating grader User
 `ubuntu@ip-172-26-15-133:~$ sudo adduser grader`
 
 ### Giving grader permission to sudo
 
-The existing configuration for "ubuntu" initial user should be copied to another file named "grader" 
+- The existing configuration for "ubuntu" initial user should be copied to another file named "grader" 
 `ubuntu@ip-172-26-15-133:~$ sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader`
 
-Then the file should be edited
+- Then the file should be edited
 `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/sudoers.d/grade`
 
-change "ubuntu" user in the file to be "grader" user
+- Change "ubuntu" user in the file to be "grader" user
 
 #### from
 ```
@@ -170,7 +170,7 @@ grader ALL=(ALL) NOPASSWD:ALL
 
 ### Key Based Authentication
 
-Create an SSH key pair for "grader" user using the ssh-keygen tool from Git Bash on the local connecting machine with no passphrase.
+- Create an SSH key pair for "grader" user using the ssh-keygen tool from Git Bash on the local connecting machine with no passphrase.
 
 ```
 Ahmad Nagib@Ahmad MINGW64 /f/Downloads
@@ -189,9 +189,9 @@ Your public key has been saved in graderkey.pub.
 `grader@ip-172-26-15-133:~$ mkdir .ssh`
 `grader@ip-172-26-15-133:~$ sudo nano .ssh/authorized_keys`
 
-paste the public key from `graderkey.pub` file on your local machine to `authorized_keys` file created on the server.
+- Paste the public key from `graderkey.pub` file on your local machine to `authorized_keys` file created on the server.
 
-Change the permissions on the folder and file to secure it from any undesired access
+- Change the permissions on the folder and file to secure it from any undesired access
 
 `grader@ip-172-26-15-133:~$ chmod 700 .ssh`
 `grader@ip-172-26-15-133:~$ chmod 644 .ssh/authorized_keys`
@@ -478,7 +478,6 @@ For more details, kindly check this [link](https://www.digitalocean.com/communit
 
 ### Configure OAuth Client ID
 - Configure OAuth 2.0 client ID to include the new url. Otherwise an `origin_mismatch` error will happen in case of trying to authenticate with google account to login to the QuantumLeap Catalog.
-
 
 Authorized JavaScript origins should include `http://quantumleap.cf` and `http://www.quantumleap.cf`. Additionally, Authorized redirect URIs preferably should include `http://quantumleap.cf/login` and `http://quantumleap.cf/google-auth` as shown below.
 
