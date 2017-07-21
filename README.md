@@ -497,3 +497,14 @@ Authorized JavaScript origins should include `http://quantumleap.cf` and `http:/
 ![google-cloud-platform](https://user-images.githubusercontent.com/13169976/28465358-b6c3f966-6e28-11e7-8b00-b3c180315e8d.png)
 
 ## References
+
++ [Udacity: Configuring Linux Web Servers](https://classroom.udacity.com/courses/ud299-nd)
++ [How to Create a Server on Amazon Lightsail](https://serverpilot.io/community/articles/how-to-create-a-server-on-amazon-lightsail.html)
++ [Download and set up PuTTY to connect using SSH in Amazon Lightsail](https://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-putty-to-connect-using-ssh)
++ [Changing the SSH Port for Your Linux Server](https://ae.godaddy.com/help/changing-the-ssh-port-for-your-linux-server-7306)
++ [How to disable remote SSH login as root from a server?](https://askubuntu.com/questions/27559/how-do-i-disable-remote-ssh-login-as-root-from-a-server)
++ [UFW - Uncomplicated Firewall](https://help.ubuntu.com/community/UFW)
++ [ How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
++ [mod_wsgi (Apache)](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
++ [Block direct ip access to your server in Apache 2.4](http://nikles.it/block-direct-ip-access-to-your-server-in-apache-2-4/)
++ [ How To Set Up Apache Virtual Hosts on Ubuntu 14.04 LTS](https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts)
