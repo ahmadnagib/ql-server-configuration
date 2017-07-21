@@ -9,7 +9,7 @@ This project is part of Udacity's Full Stack Web Developer Nanodegree Program. R
 - [Server Configurations](#Server-Configurations)
     + [Updating Installed Packages](#Updating-Installed-Packages)
     + [Changing the SSH port](#Changing-the-SSH-port)
-    + [Configuring the Uncomplicated Firewall](#Configuring-the-Uncomplicated Firewall)
+    + [Configuring the Uncomplicated Firewall](#Configuring-the-Uncomplicated-Firewall)
     + [Creating grader User](Creating-grader-User)
     + [Giving grader permission to sudo](#Giving-grader-permission-to-sudo)
     + [Key Based Authentication](#Key-Based-Authentication)
