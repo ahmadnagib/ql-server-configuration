@@ -185,17 +185,21 @@ The status by that time should be
     ```
 
 - Create a new directory named `.ssh` in the home directory of `grader` user to hold the public key
-    `ubuntu@ip-172-26-15-133:~$ sudo su grader`
-    `grader@ip-172-26-15-133:~$ cd`
-    `grader@ip-172-26-15-133:~$ mkdir .ssh`
-    `grader@ip-172-26-15-133:~$ sudo nano .ssh/authorized_keys`
+    ```
+    ubuntu@ip-172-26-15-133:~$ sudo su grader
+    grader@ip-172-26-15-133:~$ cd
+    grader@ip-172-26-15-133:~$ mkdir .ssh
+    grader@ip-172-26-15-133:~$ sudo nano .ssh/authorized_keys
+    ```
 
 - Paste the public key from `graderkey.pub` file on your local machine to `authorized_keys` file created on the server.
 
 - Change the permissions on the folder and file to secure it from any undesired access
 
-    `grader@ip-172-26-15-133:~$ chmod 700 .ssh`
-    `grader@ip-172-26-15-133:~$ chmod 644 .ssh/authorized_keys`
+    ```
+    grader@ip-172-26-15-133:~$ chmod 700 .ssh
+    grader@ip-172-26-15-133:~$ chmod 644 .ssh/authorized_keys
+    ```
 
 
 
