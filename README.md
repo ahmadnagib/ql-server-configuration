@@ -18,7 +18,7 @@ This project is part of Udacity's Full Stack Web Developer Nanodegree Program. R
     + [Apache Server](#apache-server)
     + [PostgreSQL](#postgresql)
     + [Git](#git)
-- [Depolying QuantumLeap Catalog](#depolying-1uantumleap-catalog)
+- [Depolying QuantumLeap Catalog](#depolying-quantumleap-catalog)
     + [Install Needed Python Packages](#install-needed-python-packages)
     + [Switch from SQLite to PostgreSQL](#switch-from-sqlite-to-postgresql)
     + [Configure flask Flow](#configure-flask-flow)
