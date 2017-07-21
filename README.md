@@ -44,7 +44,7 @@ As seen in the Amazon Lightsail instance dashboard, the public IP address of the
 
 `grader` is the created Ubuntu user that a Udacity reviewer can use to review the project. Additionally, `PATH_TO_THE_USER_PRIVATE_KEY` is the path of the private key on the connecting local machine to be able to log into the server as `grader`.
 
-It should be noticed that port 2200 is the port used for SSH instead of the default port 20 which was disabled manually on this instance. Logging into the instance can also be done using PuTTY. More details about how to do this can be found at this [link](https://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-putty-to-connect-using-ssh). 
+It should be noticed that `port 2200` is the port used for SSH instead of the default `port 20` which was disabled manually on this instance. Logging into the instance can also be done using [PuTTY](www.putty.org). More details about how to do this can be found at [this link](https://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-putty-to-connect-using-ssh). 
 
 
 ## URL of QuantumLeap Catalog Application
