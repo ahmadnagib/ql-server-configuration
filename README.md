@@ -145,13 +145,13 @@ The status by that time should be
 
 ### Giving grader permission to sudo
 
-- The existing configuration for "ubuntu" initial user should be copied to another file named "grader" 
+- The existing configuration for `ubuntu` initial user should be copied to another file named `grader` 
     `ubuntu@ip-172-26-15-133:~$ sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader`
 
 - Then the file should be edited
     `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/sudoers.d/grade`
 
-- Change "ubuntu" user in the file to be "grader" user
+- Change `ubuntu` user in the file to be `grader` user
 
     #### from
     ```
@@ -171,7 +171,7 @@ The status by that time should be
 
 ### Key Based Authentication
 
-- Create an SSH key pair for "grader" user using the ssh-keygen tool from Git Bash on the local connecting machine with no passphrase.
+- Create an SSH key pair for `grader` user using the ssh-keygen tool from Git Bash on the local connecting machine with no passphrase.
 
     ```
     Ahmad Nagib@Ahmad MINGW64 /f/Downloads
