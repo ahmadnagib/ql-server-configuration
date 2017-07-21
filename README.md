@@ -2,7 +2,7 @@
 
 QuantumLeap (QL) is a Linux Ubuntu server hosting [Quantum Leap Catalog](https://github.com/ahmadnagib/QuantumLeapCatalog) web application. A collection of configuration changes has been made on the server to be able to serve the application properly and securely. An overview of the carried out changes is included in this README file.
 
-This project is part of Udacity's [Full Stack Web Developer Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004) Program. The lessons of the `Configuring Linux Web Servers` Udacity course were one of the main resources to complete this project in addition to other third-party resources.
+This project is part of Udacity's [Full Stack Web Developer Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004) Program. The lessons of the [Configuring Linux Web Servers](https://www.udacity.com/course/viewer#!/c-ud299-nd) Udacity course were one of the main resources to complete this project in addition to other third-party resources.
 
 
 
