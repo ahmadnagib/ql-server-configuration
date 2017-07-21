@@ -216,14 +216,20 @@ This section includes a summary of software that was installed on the Ubuntu ser
 ### Apache Server
 - Install and configure Apache to serve a Python mod_wsgi application.
 
-    `ubuntu@ip-172-26-15-133:~$ sudo apt-get install apache2`
-    `ubuntu@ip-172-26-15-133:~$ sudo apt-get install libapache2-mod-wsgi`
+    ```
+    ubuntu@ip-172-26-15-133:~$ sudo apt-get install apache2
+    ubuntu@ip-172-26-15-133:~$ sudo apt-get install libapache2-mod-wsgi
+    ```
 
 - Make sure that port 80 is used by Apache server. Open `ports.conf` file and check whether `Listen` directive is set to `80`
 
-    `ubuntu@ip-172-26-15-133:~$ sudo nano /etc/apache2/ports.conf`
-
-    `Listen 80`
+    ```
+    ubuntu@ip-172-26-15-133:~$ sudo nano /etc/apache2/ports.conf
+    ```
+    
+    ```
+    Listen 80
+    ```
 
 - Error logs of Apache server can always be checked by viewing `/var/log/apache2/error.log` file.
 
