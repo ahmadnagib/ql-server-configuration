@@ -23,7 +23,7 @@ This project is part of Udacity's Full Stack Web Developer Nanodegree Program. R
     + [Switch from SQLite to PostgreSQL](#switch-from-sqlite-to-postgresql)
     + [Configure flask Flow](#configure-flask-flow)
     + [Configure Domain Name](#configure-domain-name)
-    + [Configure OAuth 2.0 client ID](#configure-oauth-2.0-client-id)
+    + [Configure OAuth Client ID](#configure-oauth-client-id)
 - [References](#references)
 
 
@@ -467,7 +467,7 @@ ubuntu@ip-172-26-15-133:~$ sudo a2ensite direct
 
 For more details, kindly check this [link](https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts).
 
-### Configure OAuth 2.0 client ID
+### Configure OAuth Client ID
 - Configure OAuth 2.0 client ID to include the new url. Otherwise an `origin_mismatch` error will happen in case of trying to authenticate with google account to login to the QuantumLeap Catalog.
 
 
